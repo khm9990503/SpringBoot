@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ch06::index</title>
+	</head>
+	<body>
+		<h3>Ch06. 스프링부트 타임리프 실습</h3>
+		
+		<h4>thymeleaf 기본출력</h4>
+		<p>[[${tit}]]</p>
+		<p th:text="${name}">내용</p>
+		
+		
+		<h4>thymeleaf 조건문</h4>
+		<div th:if="${gender == 'male'}">남자</div>
+		<div th:if="${gender == 'female'}">여자</div>
+		
+		<p>
+			<span th:if="${user1.name == '홍길동'}">user1은 홍길동 입니다.</span>
+			<span th:if="${user1.name == '김유신'}">user1은 김유신 입니다.</span>
+		</p>
+		
+		<p>
+			<span th:if="${user1.age > 20}">user1은 성인입니다.</span>
+			<span th:unless="${user1.age > 20}">user1은 미성인입니다.</span>
+		</p>
+		
+		<p>
+			<span th:if="${user1}">user1은 참입니다.</span>
+			<span th:unless="${user1}">user1은 거짓입니다.</span>
+		</p>
+		<p>
+			<span th:if="${user2}">user2은 참입니다.</span>
+			<span th:unless="${user2}">user2은 거짓입니다.</span>
+		</p>
+		<p th:switch="${user1.age > 20}">
+			<span th:case="true">user1은 어른 입니다.</span>
+			<span th:case="false">user1은 아이 입니다.</span>
+		</p>
+		
+		<h4>thymeleaf 반복문</h4>
+		
+		<table border="1">
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>휴대폰</th>
+				<th>나이</th>
+			</tr>
+			<tr th:each="user:${users}">
+				<td>[[${user.uid}]]</td>
+				<td>[[${user.name}]]</td>
+				<td th:text="${user.hp}"></td>
+				<td th:text="${user.age}"></td>
+			</tr>
+			<tr th:each="num,numStat : ${#numbers.sequence(10,1,-2)}">
+				<td>[[${'?='+num}]]</td>
+				<td th:text="${'idx='+numStat.index}"></td>
+				<td th:text="${'size='+numStat.size}"></td>
+				<td th:text="${'last='+numStat.last}"></td>
+			</tr>
+		</table>
+		
+		<h4>thymeleaf 링크</h4>
+		<a th:href="@{include}">thymeleak include</a>
+		<a th:href="@{layout}">thymeleak layout</a> <!-- 타임리프 링크를 쓰면 경로가 수정되어도 href가 경로에 맞게 유동적으로 변한다. -->
+	</body>
+</html>
