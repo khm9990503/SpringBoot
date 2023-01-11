@@ -8,13 +8,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="user2")
-public class User2VO {
+@Table(name="user5")
+public class User5VO {
+
 	@Id
 	private String uid;
 	private String name;
-	private String hp;
+	private String birth;
+	private int gender;
 	private int age;
-	
-	
+	private String address;
+	private String hp;
 }

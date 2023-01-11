@@ -33,14 +33,21 @@ public class User4Controller {
 		service.insertUser4(vo);
 		return "redirect:/user4/list";
 	}
+	
 	@GetMapping("/user4/modify")
-	public String modify(Model model, String seq) {
+	public String modify(Model model, int seq) {
 		User4VO user = service.selectUser4(seq);
 		model.addAttribute("user",user);
 		return "/user4/modify";
 	}
+	@PostMapping("/user4/modify")
+	public String modify(User4VO vo) {
+		service.updateUser4(vo);
+		return "redirect:/user4/list";
+	}
+	
 	@GetMapping("/user4/delete")
-	public String delete(String seq) {
+	public String delete(int seq) {
 		service.deleteUser4(seq);
 		return "redirect:/user4/list";
 	}

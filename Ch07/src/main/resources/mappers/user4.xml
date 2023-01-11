@@ -21,7 +21,7 @@
 		update `user4` set
 			`name`=#{name},
 			`gender`=#{gender},
-			`hp`=#{hp},
+			`age`=#{age},
 			`addr`=#{addr}
 		where
 			`seq`=#{seq};
