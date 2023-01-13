@@ -5,12 +5,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import kr.co.ch08.service.User2Service;
+import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
@@ -31,6 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/user2/loginSuccess")
 			.usernameParameter("uid")
 			.passwordParameter("pass");
+			
+		
+		// 자동로그인 설정
+		http.rememberMe()
+			.rememberMeParameter("remember") // 체크박스의 name과 동일해야함
+			.tokenValiditySeconds(60*60) // 만료 시간 default: 14일
+			.alwaysRemember(false) // 사용자가 체크박스를 활성화하지 않아도 항상 실행 default: false 
+			.userDetailsService(service); // 기능을 사용할 때 사용자 정보가 필요함. 반드시 이 설정 필요함
 		
 		// 로그아웃 설정
 		http.logout()
@@ -41,8 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 	
-	@Autowired
-	private User2Service service;
+	
+	private final User2Service service;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -52,8 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("manager").password("{noop}1234").roles("MANAGER");
 		auth.inMemoryAuthentication().withUser("member").password("{noop}1234").roles("MEMBER");
 		
-		// 로그인인증 처리 서비스, 암호화 방식 설정
-		auth.userDetailsService(service).passwordEncoder(new MessageDigestPasswordEncoder("SHA-256"));
+		// 로그인인증 처리 서비스, 암호화 방식 설정 BCrypt = SHA2 + 'salt'
+		auth.userDetailsService(service).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
 }
