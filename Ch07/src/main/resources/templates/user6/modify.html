@@ -9,11 +9,11 @@
 		<a th:href="@{/}">메인</a>
 		<a th:href="@{/user6/list}">user6 목록</a>
 		
-		<form action="/Ch07/user6/modify" method="post">
+		<form th:action="@{/user6/modify}" method="post">
 			<table>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" th:value="${user.name }"></td>
+					<td><input type="text" name="name" th:value="${user.name}" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td>생일</td>

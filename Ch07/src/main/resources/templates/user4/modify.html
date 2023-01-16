@@ -22,8 +22,8 @@
 				<tr>
 					<td>성별</td>
 					<td>
-						<label>남<input type="radio" name="gender" value="1"></label>
-						<label>여<input type="radio" name="gender" value="2"></label>
+						<label>남<input type="radio" name="gender" value="1" th:attr="checked=${user.gender==1?'true':'false'}"></label>
+						<label>여<input type="radio" name="gender" value="2" th:attr="checked=${user.gender==2?'true':'false'}"></label>
 					</td>
 				</tr>
 				<tr>

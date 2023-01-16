@@ -36,7 +36,7 @@ public class User6Controller {
 	@GetMapping("/user6/modify")
 	public String modify(Model model, String name) {
 		User6VO user = service.selectUser6(name);
-		model.addAttribute(user);
+		model.addAttribute("user", user);
 		return "/user6/modify";
 	}
 	@PostMapping("/user6/modify")

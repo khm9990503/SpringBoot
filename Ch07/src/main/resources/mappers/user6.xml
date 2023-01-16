@@ -21,11 +21,11 @@
 	</insert>	
 	<update id="updateUser6">
 		update `user6` set
-			`birth`=#{birth},
-			`gender`=#{gender},
-			`age`=#{age},
-			`address`=#{addr}
-			`hp`=#{hp}
+			`birth`=#{birth}, 
+			`gender`=#{gender}, 
+			`age`=#{age}, 
+			`addr`=#{addr}, 
+			`hp`=#{hp} 
 		where
 			`name`=#{name};
 	</update>

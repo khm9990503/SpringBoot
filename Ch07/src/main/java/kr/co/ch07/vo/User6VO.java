@@ -14,8 +14,8 @@ public class User6VO {
 	@Id
 	private String name;
 	private String birth;
-	private int gender;
-	private int age;
+	private Integer gender;
+	private Integer age;
 	private String addr;
 	private String hp;
 }
