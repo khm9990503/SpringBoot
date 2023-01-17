@@ -3,25 +3,38 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>book::list</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$(".btnSearch").click(function(){
+					let text = $("input[name=text]").val();
+					location.href = "/Ch09/book/list?text="+text+"&display=10&start=1";
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<h3>네이버 오픈API를 활용한 도서 목록</h3>
-		
+		<span>도서명</span><input type="text" name="text" th:value="${text}">
+		<button class="btnSearch">검색</button>
+		<div class="pageList">
+		</div>
 		<table border="1">
 			<tr>
 				<td>isbn</td>
-				<td><img alt="#" src="#"></td>
+				<td><img alt="이미지" src="#"></td>
 				<td><a href="#">제목</a></td>
 				<td>저자/출판사</td>
 				<td>출판일</td>
 			</tr>
 			<tr th:each="book : ${bookList}">
 				<td th:text="${book.isbn}"></td>
-				<td><img alt="#" th:src="@{${book.image}}"></td>
+				<td><img alt="#" th:src="@{${book.image}}" style="width: 100px; height: 150px"></td>
 				<td><a th:href="@{${book.link}}" th:text="${book.title}"></a></td>
 				<td th:text="${book.publisher}">저자/출판사</td>
 				<td th:text="${book.pubdate}">출판일</td>
 			</tr>
 		</table>
+		
 	</body>
 </html>

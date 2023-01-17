@@ -16376,3 +16376,41 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
 2023-01-17 11:34:38.115  INFO 1900 --- [RMI TCP Connection(8)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-01-17 11:34:38.115  INFO 1900 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
 2023-01-17 11:34:38.118  INFO 1900 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-01-17 13:20:04.681  INFO 3332 --- [restartedMain] kr.co.ch10.Ch10Application               : Starting Ch10Application using Java 17.0.5 on DESKTOP-1FFOQKL with PID 3332 (C:\Users\java1\Desktop\Workspace\SpringBoot\Ch10\target\classes started by java1 in C:\Users\java1\Desktop\Workspace\SpringBoot\Ch10)
+2023-01-17 13:20:04.682  INFO 3332 --- [restartedMain] kr.co.ch10.Ch10Application               : No active profile set, falling back to 1 default profile: "default"
+2023-01-17 13:20:04.710  INFO 3332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-17 13:20:04.711  INFO 3332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-17 13:20:05.063  INFO 3332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-17 13:20:05.073  INFO 3332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2023-01-17 13:20:05.141  WARN 3332 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[kr.co.ch10]' package. Please check your configuration.
+2023-01-17 13:20:05.422  INFO 3332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-17 13:20:05.429  INFO 3332 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-17 13:20:05.430  INFO 3332 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-17 13:20:05.476  INFO 3332 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/Ch10]   : Initializing Spring embedded WebApplicationContext
+2023-01-17 13:20:05.476  INFO 3332 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 765 ms
+2023-01-17 13:20:05.588  INFO 3332 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-17 13:20:05.618  INFO 3332 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-17 13:20:05.716  INFO 3332 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-17 13:20:05.776  INFO 3332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-17 13:20:05.973  INFO 3332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-17 13:20:05.983  INFO 3332 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-01-17 13:20:06.133  INFO 3332 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-17 13:20:06.141  INFO 3332 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-17 13:20:06.170  WARN 3332 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-17 13:20:06.260  INFO 3332 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-01-17 13:20:06.407  INFO 3332 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-01-17 13:20:06.430  INFO 3332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/Ch10'
+2023-01-17 13:20:06.437  INFO 3332 --- [restartedMain] kr.co.ch10.Ch10Application               : Started Ch10Application in 2.002 seconds (JVM running for 2.475)
+2023-01-17 13:20:15.089  INFO 3332 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/Ch10]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-17 13:20:15.089  INFO 3332 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-17 13:20:15.089  INFO 3332 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-01-17 13:20:15.147 DEBUG 3332 --- [http-nio-8080-exec-3] kr.co.ch10.controller.MainController     : debug 로그...
+2023-01-17 13:20:15.147  INFO 3332 --- [http-nio-8080-exec-3] kr.co.ch10.controller.MainController     : info 로그...
+2023-01-17 13:20:15.147  WARN 3332 --- [http-nio-8080-exec-3] kr.co.ch10.controller.MainController     : warn 로그...
+2023-01-17 13:20:15.147 ERROR 3332 --- [http-nio-8080-exec-3] kr.co.ch10.controller.MainController     : error 로그...
+2023-01-17 13:20:24.936  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-01-17 13:20:24.943  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-17 13:20:24.944  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/Ch10]   : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-01-17 13:20:24.949  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-17 13:20:24.951  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-01-17 13:20:24.955  INFO 3332 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

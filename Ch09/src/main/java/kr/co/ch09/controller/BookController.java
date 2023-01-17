@@ -30,20 +30,20 @@ import kr.co.ch09.vo.BooksVO;
 public class BookController {
 
 	@GetMapping("/book/list")
-	public String list(Model model,String text) {
+	public String list(Model model,String text,int display,int start) {
 		
 		String clientId = "_4F0ULZ5_uLcwuJNWfY9"; //애플리케이션 클라이언트 아이디
         String clientSecret = "6YMKma224Y"; //애플리케이션 클라이언트 시크릿
 		
 		// naver open API 요청
-		String apiURL = "https://openapi.naver.com/v1/search/book.json?query={text}";    // JSON 결과
+		//String apiURL = "https://openapi.naver.com/v1/search/book.json?query={text}";    // JSON 결과
 		
 		URI uri = UriComponentsBuilder
 									.fromUriString("https://openapi.naver.com")
 									.path("/v1/search/book.json")
 									.queryParam("query", text)
-									.queryParam("display", 10)
-									.queryParam("start", 1)
+									.queryParam("display", display)
+									.queryParam("start", start)
 									.queryParam("sort", "sim")
 									.encode()
 									.build()
@@ -71,6 +71,9 @@ public class BookController {
 		BookVO[] bookList = books.getItems();
 		
 		model.addAttribute("bookList",bookList);
+		model.addAttribute("text",text);
+		model.addAttribute("start",start);
+		model.addAttribute("total",books.getTotal());
 		
 		return "/book/list";
 	}

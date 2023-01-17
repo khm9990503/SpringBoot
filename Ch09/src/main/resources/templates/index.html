@@ -7,6 +7,11 @@
 		<script th:src="@{/js/user1.js}"></script>
 		<script>
 			$(function(){
+				$(".btnSearch").click(function(){
+					let text = $("input[name=text]").val();
+					location.href = "/Ch09/book/list?text="+text+"&display=10&start=1";
+				});
+				
 				$(".member_list1").click(function(){
 					$.ajax({
 						url:'/Ch09/member',
@@ -99,6 +104,7 @@
 		<button class="member_delete">member 삭제</button>
 		
 		<h4>book</h4>
-		<a th:href="@{/book/list}">book list</a>
+		<input type="text" name="text">
+		<button class="btnSearch">책 검색</button>
 	</body>
 </html>
