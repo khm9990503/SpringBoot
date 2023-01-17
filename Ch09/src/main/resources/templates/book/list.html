@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>book::list</title>
+	</head>
+	<body>
+		<h3>네이버 오픈API를 활용한 도서 목록</h3>
+		
+		<table border="1">
+			<tr>
+				<td>isbn</td>
+				<td><img alt="#" src="#"></td>
+				<td><a href="#">제목</a></td>
+				<td>저자/출판사</td>
+				<td>출판일</td>
+			</tr>
+			<tr th:each="book : ${bookList}">
+				<td th:text="${book.isbn}"></td>
+				<td><img alt="#" src="${book.image}"></td>
+				<td><a th:href="@{book.link}" th:text="${book.title}"></a></td>
+				<td th:text="${book.publisher}">저자/출판사</td>
+				<td th:text="${book.pubdate}">출판일</td>
+			</tr>
+		</table>
+	</body>
+</html>
