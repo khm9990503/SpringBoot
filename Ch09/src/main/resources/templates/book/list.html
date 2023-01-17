@@ -17,8 +17,8 @@
 			</tr>
 			<tr th:each="book : ${bookList}">
 				<td th:text="${book.isbn}"></td>
-				<td><img alt="#" src="${book.image}"></td>
-				<td><a th:href="@{book.link}" th:text="${book.title}"></a></td>
+				<td><img alt="#" th:src="@{${book.image}}"></td>
+				<td><a th:href="@{${book.link}}" th:text="${book.title}"></a></td>
 				<td th:text="${book.publisher}">저자/출판사</td>
 				<td th:text="${book.pubdate}">출판일</td>
 			</tr>
