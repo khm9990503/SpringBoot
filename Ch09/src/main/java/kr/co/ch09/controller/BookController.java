@@ -70,10 +70,17 @@ public class BookController {
 		}
 		BookVO[] bookList = books.getItems();
 		
+		int total = books.getTotal() / 10;
+		
+		if (books.getTotal() % 10 > 0) {
+			total += 1;
+		}
+		
+		
 		model.addAttribute("bookList",bookList);
 		model.addAttribute("text",text);
 		model.addAttribute("start",start);
-		model.addAttribute("total",books.getTotal());
+		model.addAttribute("total",total);
 		
 		return "/book/list";
 	}

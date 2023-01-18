@@ -18,6 +18,9 @@
 		<span>도서명</span><input type="text" name="text" th:value="${text}">
 		<button class="btnSearch">검색</button>
 		<div class="pageList">
+			<th:block th:each="num : ${#numbers.sequence(1,total)}">
+				<a th:href="@{/book/list(text=${text},display=10,start=${10*(num-1)+1})}" th:text="${num}"></a>
+			</th:block>
 		</div>
 		<table border="1">
 			<tr>
