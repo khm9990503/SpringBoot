@@ -3,6 +3,7 @@ package kr.co.ch08.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -13,7 +14,7 @@ import kr.co.ch08.security.MyUserDetails;
 import kr.co.ch08.vo.User2VO;
 
 @Service
-public class User2Service implements UserDetailsManager {
+public class User2Service implements UserDetailsService {
 
 	@Autowired
 	private User2Repo repo;
@@ -66,29 +67,5 @@ public class User2Service implements UserDetailsManager {
 		
 		return myUser;
 	}
-	@Override
-	public void createUser(UserDetails user) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void updateUser(UserDetails user) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void deleteUser(String username) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void changePassword(String oldPassword, String newPassword) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean userExists(String username) {
-		// TODO Auto-generated method stub
-		return false;
-	};
+	
 }
