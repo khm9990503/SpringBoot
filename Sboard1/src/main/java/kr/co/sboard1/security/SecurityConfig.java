@@ -1,26 +1,32 @@
 package kr.co.sboard1.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import kr.co.sboard1.service.UserService;
 import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity
-@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// 인가
-		// 접근 권한 설정
-		http.authorizeRequests().antMatchers("/").permitAll();
+		
+		// 인가 (접근 권한) 설정
+		http.authorizeRequests().antMatchers("/").permitAll(); // ↓ ROLE_2 X
+		http.authorizeRequests().antMatchers("/list").hasAnyRole("2","3","4","5"); 
+		http.authorizeRequests().antMatchers("/write").hasAnyRole("3","4","5"); 
+		http.authorizeRequests().antMatchers("/view").hasAnyRole("3","4","5"); 
+		http.authorizeRequests().antMatchers("/modify").hasAnyRole("3","4","5"); 
+		
 		
 		// 사이트 위조 방지 설정 , 배포 시 주석하기
 		http.csrf().disable();
@@ -29,28 +35,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 			.loginPage("/user/login")
 			.defaultSuccessUrl("/list")
+			.failureUrl("/user/login?success=100")
 			.usernameParameter("uid")
 			.passwordParameter("pass");
 			
-		
-		// 자동로그인 설정
-		http.rememberMe()
-			.rememberMeParameter("remember") // 체크박스의 name과 동일해야함
-			.tokenValiditySeconds(60*60) // 만료 시간 default: 14일
-			.alwaysRemember(false) // 사용자가 체크박스를 활성화하지 않아도 항상 실행 default: false 
-			.userDetailsService(service); // 기능을 사용할 때 사용자 정보가 필요함. 반드시 이 설정 필요함
-		
 		// 로그아웃 설정
 		http.logout()
 					.invalidateHttpSession(true)
-					.logoutRequestMatcher(new AntPathRequestMatcher("/user2/logout"))
-					.logoutSuccessUrl("/user2/login");
+					.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+					.logoutSuccessUrl("/user/login?success=200");
 		
 		
 	}
 	
-	
-	private final UserService service;
+	@Autowired
+	private SecurityUserService userService;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -61,7 +60,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("member").password("{noop}1234").roles("MEMBER");
 		*/
 		// 로그인인증 처리 서비스, 암호화 방식 설정 BCrypt = SHA2 + 'salt'
-		auth.userDetailsService(service).passwordEncoder(new BCryptPasswordEncoder());
+		auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
+	@Bean
+	public PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

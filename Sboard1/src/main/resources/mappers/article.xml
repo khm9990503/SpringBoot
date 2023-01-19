@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sboard1.dao.ArticleDAO">	
+	<insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
+		insert into `board_article` set 
+									`title`=#{title}, 
+									`content`=#{content}, 
+									`uid`=#{uid}, 
+									`file`=#{file}, 
+									`regip`=#{regip}, 
+									`rdate`=now(); 
+	</insert>
+	<insert id="insertFile">
+		insert into `board_file` set 
+				`parent`=#{parent}, 
+				`newName`=#{newName}, 
+				`oriName`=#{oriName}, 
+				`rdate`=now();
+	</insert>
+	<select id="selectArticle" resultType="kr.co.sboard1.vo.ArticleVO">
+	</select>
+	<select id="selectArticles" resultType="kr.co.sboard1.vo.ArticleVO">
+		SELECT a.*, b.`nick` FROM `board_article` AS a 
+													JOIN `board_user` AS b 
+													ON a.uid = b.uid 
+													where `parent`=0 
+													order by `no` desc 
+													limit #{start},10;
+	</select>
+	<select id="selectCountTotal" resultType="int">
+		SELECT COUNT(`no`) FROM `board_article` where `parent`=0;
+	</select>
+	<update id="updateArticle"></update>
+	<delete id="deleteArticle"></delete>
+</mapper>

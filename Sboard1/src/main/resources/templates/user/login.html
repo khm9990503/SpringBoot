@@ -11,15 +11,15 @@
             <h3>Board System v1.0</h3>
         </header>
         <main id="user" class="login">
-            <form action="#">
+            <form th:action="@{#}" method="post">
                 <table border="0">
                     <tr>
                         <td><img th:src="@{/img/login_ico_id.png}" alt="로그인"/></td>
-                        <td><input type="text" name="uid" placeholder="아이디 입력"/></td>
+                        <td><input type="text" name="uid" id="uid" placeholder="아이디 입력"/></td>
                     </tr>
                     <tr>
                         <td><img th:src="@{/img/login_ico_pw.png}" alt="비밀번호"/></td>
-                        <td><input type="password" name="pass" placeholder="비밀번호 입력"/></td>
+                        <td><input type="password" name="pass" id="pass" placeholder="비밀번호 입력"/></td>
                     </tr>
                 </table>
                 <input type="submit" class="btnLogin" value="로그인"/>

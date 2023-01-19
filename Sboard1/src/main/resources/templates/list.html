@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>글목록</title>    
@@ -10,8 +11,8 @@
         <header>
             <h3>Board System v1.0</h3>
             <p>
-                <span class="nick">길동이</span>님 반갑습니다.
-                <a href="./user/login.html" class="logout">[로그아웃]</a>
+                <span class="nick" sec:authentication="principal.user.nick">길동이</span>님 반갑습니다.
+                <a th:href="@{/user/logout}" class="logout">[로그아웃]</a>
             </p>
         </header>
 
@@ -26,25 +27,36 @@
                     <th>날짜</th>
                     <th>조회</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="./view.html">테스트 제목입니다.[3]</a></td>
-                    <td>길동이</td>
-                    <td>20-05-12</td>
-                    <td>12</td>
+                <tr th:each="article : ${articles}">
+                    <td>[[${article.no}]]</td>
+                    <td><a th:href="@{/view}">[[${article.title}]]  [<span>[[${article.comment}]]</span>]</a></td>
+                    <td>[[${article.uid}]]</td>
+                    <td>[[${article.rdate.substring(2,10)}]]</td>
+                    <td>[[${article.hit}]]</td>
                 </tr>               
                 
             </table>
 
             <div class="page">
-                <a href="#" class="prev">이전</a>
-                <a href="#" class="num current">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
+                <a th:href="@{/list(pg=${pageGroupStart})}" th:if="${pageGroupStart gt 1}" class="prev">이전</a>
+                <th:block th:each="${}">
+                
+                </th:block>
                 <a href="#" class="next">다음</a>
             </div>
+            <div class="page">
+	            <c:if test="${pageGroupStart gt 1}">
+	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${pageGroupStart-1}&cate=${cate}" class="prev">이전</a>
+	            </c:if>
+	            <c:forEach var="i" begin="${pageGroupStart}" end="${pageGroupEnd }">
+	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${i}&cate=${cate}" class="num ${i==currentPage?'current':'off'} ${i==currentPage?'on':'off'}">${i}</a>
+	            </c:forEach>
+	            <c:if test="${pageGroupEnd lt lastPageNum}">
+	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${pageGroupStart+1}&cate=${cate}" class="next">다음</a>
+	            </c:if>
+       		</div>
 
-            <a href="./write.html" class="btnWrite">글쓰기</a>
+            <a th:href="@{/write}" class="btnWrite">글쓰기</a>
 
         </main>
 
