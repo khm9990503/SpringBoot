@@ -28,4 +28,7 @@ public class ArticleVO {
 	private String uid;
 	private String regip;
 	private String rdate;
+	// additional
+	private String nick;
+	private FileVO fileVO;
 }

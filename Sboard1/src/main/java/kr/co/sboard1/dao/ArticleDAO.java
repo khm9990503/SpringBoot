@@ -14,9 +14,11 @@ public interface ArticleDAO {
 
 	public int insertArticle(ArticleVO vo); // int는 실행 결과의 raw 갯수 
 	public int insertFile(FileVO vo);
-	public ArticleVO selectArticle(String no);
+	public ArticleVO selectArticle(int no);
 	public List<ArticleVO> selectArticles(int start);
+	public FileVO selectFile(int fno);
+	public int updateFileDownload(int fno);
 	public void updateArticle(ArticleVO vo);
-	public void deleteArticle(String no);
+	public void deleteArticle(int no);
 	public int selectCountTotal();
 }

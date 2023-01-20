@@ -27,10 +27,10 @@
                     <th>날짜</th>
                     <th>조회</th>
                 </tr>
-                <tr th:each="article : ${articles}">
-                    <td>[[${article.no}]]</td>
-                    <td><a th:href="@{/view}">[[${article.title}]]  [<span>[[${article.comment}]]</span>]</a></td>
-                    <td>[[${article.uid}]]</td>
+                <tr th:each="article,artStat : ${articles}">
+                    <td>[[${pageStartNum-artStat.index}]]</td>
+                    <td><a th:href="@{/view(no=${article.no},pg=${pg})}">[[${article.title}]] &#91;[[${article.comment}]]&#93;</a></td>
+                    <td>[[${article.nick}]]</td>
                     <td>[[${article.rdate.substring(2,10)}]]</td>
                     <td>[[${article.hit}]]</td>
                 </tr>               
@@ -38,23 +38,13 @@
             </table>
 
             <div class="page">
-                <a th:href="@{/list(pg=${pageGroupStart})}" th:if="${pageGroupStart gt 1}" class="prev">이전</a>
-                <th:block th:each="${}">
-                
+                <a th:href="@{/list(pg=${pageGroupStart-1})}" th:if="${pageGroupStart gt 1}" class="prev">이전</a>
+                <th:block th:each="page : ${#numbers.sequence(pageGroupStart,pageGroupEnd)}">
+                	<a th:href="@{/list(pg=${page})}" class="num " th:attrappend="class=${page==currentPage?'current':''}">[[${page}]]</a>
                 </th:block>
-                <a href="#" class="next">다음</a>
+                <a th:href="@{/list(pg=${pageGroupEnd+1})}" th:if="${pageGroupEnd lt lastPageNum}" class="next">다음</a>
             </div>
-            <div class="page">
-	            <c:if test="${pageGroupStart gt 1}">
-	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${pageGroupStart-1}&cate=${cate}" class="prev">이전</a>
-	            </c:if>
-	            <c:forEach var="i" begin="${pageGroupStart}" end="${pageGroupEnd }">
-	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${i}&cate=${cate}" class="num ${i==currentPage?'current':'off'} ${i==currentPage?'on':'off'}">${i}</a>
-	            </c:forEach>
-	            <c:if test="${pageGroupEnd lt lastPageNum}">
-	            <a href="/Java1_Kmarket1/cs/qna/list.do?pg=${pageGroupStart+1}&cate=${cate}" class="next">다음</a>
-	            </c:if>
-       		</div>
+            
 
             <a th:href="@{/write}" class="btnWrite">글쓰기</a>
 
