@@ -1,0 +1,42 @@
+<th:block th:include="@{_header.html}"/>
+<th:block th:include="@{board/__${group}__.html}"/>
+
+
+        <main id="board" class="list">
+            
+            <table border="0">
+                <caption>글목록</caption>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>날짜</th>
+                    <th>조회</th>
+                </tr>
+                <tr th:each="article,artStat : ${articles}">
+                    <td>[[${pageStartNum-artStat.index}]]</td>
+                    <td><a th:href="@{/view(no=${article.no},pg=${pg})}">[[${article.title}]] &#91;[[${article.comment}]]&#93;</a></td>
+                    <td>[[${article.nick}]]</td>
+                    <td>[[${article.rdate.substring(2,10)}]]</td>
+                    <td>[[${article.hit}]]</td>
+                </tr>
+
+            </table>
+
+
+<!--            <div class="page">-->
+<!--                <a th:href="@{/list(pg=${pageGroupStart-1})}" th:if="${pageGroupStart gt 1}" class="prev">이전</a>-->
+<!--                <th:block th:each="page : ${#numbers.sequence(pageGroupStart,pageGroupEnd)}">-->
+<!--                    <a th:href="@{/list(pg=${page})}" class="num " th:attrappend="class=${page==currentPage?'current':''}">[[${page}]]</a>-->
+<!--                </th:block>-->
+<!--                <a th:href="@{/list(pg=${pageGroupEnd+1})}" th:if="${pageGroupEnd lt lastPageNum}" class="next">다음</a>-->
+<!--            </div>-->
+
+
+            <a th:href="@{/write}" class="btnWrite">글쓰기</a>
+
+        </main>
+</article>
+</section>
+</div>
+<th:block th:include="@{_footer.html}"/>

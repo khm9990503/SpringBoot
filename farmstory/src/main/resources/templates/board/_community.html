@@ -1,0 +1,46 @@
+
+
+        <div id="sub">
+            <div><img src="../img/sub_top_tit5.png" alt="COMMUNITY"></div>
+            <section class="cate5">
+                <aside>
+                    <img src="../img/sub_aside_cate5_tit.png" alt="커뮤니티"/>
+
+                    <ul class="lnb">
+                        <li th:classappend="${cate} == 'notice' ? 'on'"><a th:href="@{/board/list(group=_community,cate=notice)}">공지사항</a></li>
+                        <li th:classappend="${cate}=='today' ? 'on'"><a th:href="@{/board/list(group=_community,cate=today)}">오늘의식단</a></li>
+                        <li th:classappend="${cate}=='chef' ? 'on'"><a th:href="@{/board/list(group=_community,cate=chef)}">나도요리사</a></li>
+                        <li th:classappend="${cate}=='qna' ? 'on'"><a th:href="@{/board/list(group=_community,cate=qna)}">1:1고객문의</a></li>
+                        <li th:classappend="${cate}=='faq' ? 'on'"><a th:href="@{/board/list(group=_community,cate=faq)}">자주묻는질문</a></li>
+                    </ul>
+
+                </aside>
+                <article>
+                    <nav>
+                        <img th:src="@{/img/sub_nav_tit_cate5_tit1.png}" alt="공지사항"/>
+                        <p>
+                            HOME > 커뮤니티 >
+
+                            <th:block th:if="${cate=='notice'}">
+                                <em>공지사항</em>
+                            </th:block>
+
+                            <th:block th:if="${cate=='today'}">
+                                <em>오늘의식단</em>
+                            </th:block>
+
+                            <th:block th:if="${cate=='chef'}">
+                                <em>나도요리사</em>
+                            </th:block>
+
+                            <th:block th:if="${cate=='qna'}">
+                                <em>1:1고객문의</em>
+                            </th:block>
+
+                            <th:block th:if="${cate=='faq'}">
+                                <em>자주묻는질문</em>
+                            </th:block>
+
+                        </p>
+                    </nav>
+

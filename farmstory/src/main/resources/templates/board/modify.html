@@ -1,0 +1,27 @@
+<th:block th:include="@{_header.html}"/>
+<th:block th:include="@{board/_community.html}"/>
+        <main id="board" class="modify">
+            
+            <form th:action="@{modify}" method="post">
+                <table border="0">
+                    <caption>글수정</caption>
+                    <tr>
+                        <th>제목</th>
+
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+
+                    </tr>
+                </table>
+
+                <div>
+
+                    <input type="submit" value="수정완료" class="btn btnComplete"/>
+                </div>
+            </form>
+        </main>
+</article>
+</section>
+</div>
+        <th:block th:include="@{_footer.html}"/>
