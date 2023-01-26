@@ -1,28 +1,43 @@
 <th:block th:include="@{_header.html}"/>
-        <main id="user" class="terms">
-            <table border="0">
-                <caption>사이트 이용약관</caption>
-                <tr>
-                    <td>
-                        <textarea class="terms" readonly>약관내용</textarea>
-                        <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
-                    </td>
-                </tr>
-            </table>
+<script>
+    $(function(){
+        $('.next').click(function(){
+            let termsOkay = $('.terms').is(':checked');
+            let privacyOkay = $('.privacy').is(':checked');
 
-            <table border="0">
-                <caption>개인정보 취급방침</caption>
-                <tr>
-                    <td>
-                        <textarea class="privacy" readonly>개인정보내용</textarea>
-                        <label><input type="checkbox" class="privacy">&nbsp;동의합니다.</label>
-                    </td>
-                </tr>
-            </table>
+            if(termsOkay == true && privacyOkay == true){
 
-            <p>
-                <a th:href="@{/user/login}" class="cancel">취소</a>
-                <a th:href="@{/user/register}" class="next">다음</a>
-            </p>            
-        </main>
-        <th:block th:include="@{_footer.html}"/>
+            }else {
+                alert('약관에 모두 동의하셔야 회원가입이 가능합니다.');
+                return false;
+            }
+        });
+    });
+</script>
+<main id="user" class="terms">
+    <table border="0">
+        <caption>사이트 이용약관</caption>
+        <tr>
+            <td>
+                <textarea class="terms" th:text="${terms.terms}" readonly>약관내용</textarea>
+                <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0">
+        <caption>개인정보 취급방침</caption>
+        <tr>
+            <td>
+                <textarea class="privacy" th:text="${terms.privacy}" readonly>개인정보내용</textarea>
+                <label><input type="checkbox" class="privacy">&nbsp;동의합니다.</label>
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <a th:href="@{/user/login}" class="cancel">취소</a>
+        <a th:href="@{/user/register}" class="next">다음</a>
+    </p>
+</main>
+<th:block th:include="@{_footer.html}"/>

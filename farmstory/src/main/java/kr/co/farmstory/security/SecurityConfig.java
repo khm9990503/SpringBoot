@@ -31,11 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// 사이트 위조 방지 설정 , 배포 시 주석하기
 		http.csrf().disable();
-		/*
+
 		// 로그인 설정
 		http.formLogin()
 			.loginPage("/user/login")
-			.defaultSuccessUrl("/list")
+			.defaultSuccessUrl("/index")
 			.failureUrl("/user/login?success=100")
 			.usernameParameter("uid")
 			.passwordParameter("pass");
@@ -45,13 +45,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					.invalidateHttpSession(true)
 					.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 					.logoutSuccessUrl("/user/login?success=200");
-		*/
+
 		
 	}
-	/*
+
 	@Autowired
 	private SecurityUserService userService;
-	*/
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		/*
@@ -59,10 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("admin").password("{noop}1234").roles("ADMIN");
 		auth.inMemoryAuthentication().withUser("manager").password("{noop}1234").roles("MANAGER");
 		auth.inMemoryAuthentication().withUser("member").password("{noop}1234").roles("MEMBER");
-
+		*/
 		// 로그인인증 처리 서비스, 암호화 방식 설정 BCrypt = SHA2 + 'salt'
 		auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
-		*/
+
 
 	}
 	
