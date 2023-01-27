@@ -87,6 +87,10 @@
 												WHERE `parent`!=0 ORDER BY `no` DESC LIMIT 1;
 	</select>
 
+	<select id="selectArticlesIDX" resultType="kr.co.farmstory.vo.ArticleVO">
+		select * from `board_article` where `parent`=0 and `cate`=#{cate} order by no desc limit 5;
+	</select>
+
 	<update id="updateArticle">
 		update `board_article` set `title`=#{title},`content`=#{content},`rdate`=now() where `no`=#{no};
 	</update>
@@ -111,4 +115,5 @@
 	<delete id="deleteComment">
 		delete from `board_article` where `no`=#{no};
 	</delete>
+
 </mapper>

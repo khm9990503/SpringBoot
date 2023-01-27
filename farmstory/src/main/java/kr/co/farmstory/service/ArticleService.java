@@ -60,6 +60,9 @@ public class ArticleService {
     public FileVO selectFile(int fno) {
         return dao.selectFile(fno);
     };
+    public List<ArticleVO> selectArticlesIDX(String cate){
+        return dao.selectArticlesIDX(cate);
+    };
     public int updateFileDownload(int fno) {
         return dao.updateFileDownload(fno);
     };
@@ -179,4 +182,5 @@ public class ArticleService {
         dao.updateCommentCountMNS(parent);
         return dao.deleteComment(no);
     };
+
 }

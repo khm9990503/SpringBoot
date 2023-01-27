@@ -29,4 +29,5 @@ public interface ArticleDAO {
     public int deleteComment(int no);
     public int selectCountTotal(String cate);
     public List<ArticleVO> selectComments(int no);
+    public List<ArticleVO> selectArticlesIDX(String cate);
 }
