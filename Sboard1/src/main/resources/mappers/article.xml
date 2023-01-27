@@ -67,12 +67,16 @@
 	<select id="selectFile" resultType="kr.co.sboard1.vo.FileVO">
 		select * from `board_file` where `fno`=#{fno};
 	</select>
-	<update id="updateArticle"></update>
+	<update id="updateArticle">
+		update `board_article` set `title`=#{title},`content`=#{content},`rdate`=now() where `no`=#{no};
+	</update>
 	<update id="updateArticleHit">
 		update `board_article` set `hit` = `hit` + 1 where `no`=#{no};
 	</update>
 	<update id="updateFileDownload">
 		update `board_file` set `download` = `download` + 1 where `fno`=#{fno};
 	</update>
-	<delete id="deleteArticle"></delete>
+	<delete id="deleteArticle">
+		delete from `board_article` where `no`=#{no} or `parent`=#{no};
+	</delete>
 </mapper>

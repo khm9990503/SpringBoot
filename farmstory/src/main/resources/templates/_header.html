@@ -31,7 +31,7 @@
 
                 <p sec:authorize="isAuthenticated()">
                     <a th:href="@{/}">HOME |</a>
-                    <span class="nick" sec:authentication="principal.user.nick">길동이</span>님 반갑습니다.
+                    <span class="nick" sec:authentication="principal.user.nick"></span>님 반갑습니다.
                     <a th:href="@{/user/logout}" class="logout">[로그아웃]</a>
                     <a href="#">고객센터</a>
                 </p>

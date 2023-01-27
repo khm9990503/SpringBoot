@@ -12,7 +12,7 @@
                     <th>날짜</th>
                     <th>조회</th>
                 </tr>
-                <th:block th:if="${articles == null}">
+                <th:block th:if="${articles.size() < 1}">
                     <tr>
                         <td colspan="5">게시물이 존재하지 않습니다.</td>
                     </tr>
@@ -28,7 +28,7 @@
                 </th:block>
             </table>
 
-            <div class="page">
+            <div class="page" th:if="${articles.size() >= 1}">
                 <a th:href="@{/list(pg=${pageGroupStart-1},group=${group},cate=${cate})}" th:if="${pageGroupStart gt 1}" class="prev">이전</a>
                 <th:block th:each="page : ${#numbers.sequence(pageGroupStart,pageGroupEnd)}">
                     <a th:href="@{/list(pg=${page},group=${group},cate=${cate})}" class="num " th:attrappend="class=${page==currentPage?'current':''}">[[${page}]]</a>

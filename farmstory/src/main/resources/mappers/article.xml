@@ -25,7 +25,14 @@
 				`oriName`=#{oriName}, 
 				`rdate`=now();
 	</insert>
-	
+	<insert id="insertComment">
+		insert into `board_article` set
+									`parent`=#{parent},
+									`content`=#{content},
+									`uid`=#{uid},
+									`regip`=#{regip},
+									`rdate`=NOW();
+	</insert>
 	<resultMap id="selectArticleResultMap" type="kr.co.farmstory.vo.ArticleVO">
 		<id column="no" property="no"/>
 		<result column="parent" property="parent"/>
@@ -63,8 +70,21 @@
 	<select id="selectCountTotal" resultType="int">
 		SELECT COUNT(`no`) FROM `board_article` where `parent`=0 and `cate`=#{cate};
 	</select>
+
 	<select id="selectFile" resultType="kr.co.farmstory.vo.FileVO">
 		select * from `board_file` where `fno`=#{fno};
+	</select>
+
+	<select id="selectComments" resultType="kr.co.farmstory.vo.ArticleVO">
+		select a.*,b.nick from `board_article` as a
+												join `board_user` as b using (`uid`)
+												where `parent`=#{no} order by `no` asc;
+	</select>
+
+	<select id="selectCommentLatest" resultType="kr.co.farmstory.vo.ArticleVO">
+		SELECT a.*,b.nick FROM `board_article` AS a
+												JOIN `board_user` AS b USING(`uid`)
+												WHERE `parent`!=0 ORDER BY `no` DESC LIMIT 1;
 	</select>
 
 	<update id="updateArticle">
@@ -73,10 +93,22 @@
 	<update id="updateArticleHit">
 		update `board_article` set `hit` = `hit` + 1 where `no`=#{no};
 	</update>
+	<update id="updateCommentCountPLS">
+		UPDATE `board_article` SET `comment`=`comment`+1 WHERE `no`=#{parent};
+	</update>
+	<update id="updateCommentCountMNS">
+		UPDATE `board_article` SET `comment`=`comment`-1 WHERE `no`=#{parent};
+	</update>
 	<update id="updateFileDownload">
 		update `board_file` set `download` = `download` + 1 where `fno`=#{fno};
 	</update>
+	<update id="updateComment">
+		update `board_article` set `content` = #{content}, `rdate`=now() where `no`=#{no}
+	</update>
 	<delete id="deleteArticle">
 		delete from `board_article` where `no`=#{no} or `parent`=#{no};
+	</delete>
+	<delete id="deleteComment">
+		delete from `board_article` where `no`=#{no};
 	</delete>
 </mapper>

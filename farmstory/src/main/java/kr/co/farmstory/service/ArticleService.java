@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -43,6 +44,12 @@ public class ArticleService {
         }
 
         return result;
+    };
+    @Transactional
+    public ArticleVO insertComment(ArticleVO vo){
+        dao.insertComment(vo);
+        dao.updateCommentCountPLS(vo.getParent());
+        return dao.selectCommentLatest();
     };
     public ArticleVO selectArticle(int no) {
         return dao.selectArticle(no);
@@ -160,5 +167,16 @@ public class ArticleService {
         return result;
     }
     // 페이징 처리 끝 ///////////////////////////////////////////////////////
-
+    // 댓글  ///////////////////////////////////////////////////////
+    public List<ArticleVO> selectComments(int no){
+        return dao.selectComments(no);
+    };
+    public int updateComment(String content, int no){
+        return dao.updateComment(content, no);
+    };
+    @Transactional
+    public int deleteComment(int parent, int no){
+        dao.updateCommentCountMNS(parent);
+        return dao.deleteComment(no);
+    };
 }

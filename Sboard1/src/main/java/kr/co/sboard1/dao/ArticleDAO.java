@@ -19,6 +19,7 @@ public interface ArticleDAO {
 	public FileVO selectFile(int fno);
 	public int updateFileDownload(int fno);
 	public void updateArticle(ArticleVO vo);
+	public void updateArticleHit(int no);
 	public void deleteArticle(int no);
 	public int selectCountTotal();
 }

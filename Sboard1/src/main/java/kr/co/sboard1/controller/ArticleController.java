@@ -69,7 +69,7 @@ public class ArticleController {
 		ArticleVO article = service.selectArticle(no);
 		model.addAttribute("article",article);
 		// 게시물 조회수 +1
-		
+		service.updateArticleHit(no);
 		// 댓글 가져오기
 		return "view";
 	}
@@ -83,8 +83,16 @@ public class ArticleController {
 	}
 	
 	@GetMapping("modify")
-	public String modify() {
+	public String modify(Model model, int no) {
+		ArticleVO article = service.selectArticle(no);
+		model.addAttribute("article",article);
 		return "modify";
+	}
+	@PostMapping("modify")
+	public String modify(ArticleVO vo) {
+		service.updateArticle(vo);
+		String no = vo.getNo()+"";
+		return "redirect:view?no="+no;
 	}
 	
 }

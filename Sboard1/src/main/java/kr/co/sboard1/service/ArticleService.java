@@ -60,6 +60,9 @@ public class ArticleService {
 	public void updateArticle(ArticleVO vo) {
 		dao.updateArticle(vo);
 	};
+	public void updateArticleHit(int no) {
+		dao.updateArticleHit(no);
+	};
 	public void deleteArticle(int no) {
 		dao.deleteArticle(no);
 	};
@@ -158,6 +161,5 @@ public class ArticleService {
 		return result;
 	}
 	// 페이징 처리 끝 ///////////////////////////////////////////////////////
-	// 게시물 조회수 +1 /////////////////////////////////////////////////////
 	
 }
