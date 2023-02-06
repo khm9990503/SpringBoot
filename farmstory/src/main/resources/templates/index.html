@@ -17,43 +17,43 @@
             </div>
 
             <div class="quick">
-                <a th:href="@{#}"><img th:src="@{/img/main_banner_sub1_tit.png}" alt="오늘의 식단"></a>
-                <a th:href="@{#}"><img th:src="@{/img/main_banner_sub2_tit.png}" alt="나도 요리사"></a>
+                <a th:href="@{/board/list(group='_community',cate='today')}"><img th:src="@{/img/main_banner_sub1_tit.png}" alt="오늘의 식단"></a>
+                <a th:href="@{/board/list(group='_community',cate='chef')}"><img th:src="@{/img/main_banner_sub2_tit.png}" alt="나도 요리사"></a>
             </div>
 
             <div class="latest">
                 <div>
-                    <a th:href="#"><img th:src="./img/main_latest1_tit.png" alt="텃밭 가꾸기"/></a>
-                    <img th:src="./img/main_latest1_img.jpg" alt="이미지"/>
+                    <a th:href="@{/board/list(group='_croptalk',cate='grow')}"><img th:src="@{/img/main_latest1_tit.png}" alt="텃밭 가꾸기"/></a>
+                    <img th:src="@{/img/main_latest1_img.jpg}" alt="이미지"/>
                     <table border="0">
-                        <tr>
+                        <tr th:each="grow : ${grows}">
                             <td>></td>
-                            <td><a th:href="@{#}">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
+                            <td><a th:href="@{/board/view(group='_croptalk',cate='grow',no=${grow.no})}">[[${grow.title}]]</a></td>
+                            <td>[[${grow.rdate.substring(2,10)}]]</td>
                         </tr>
 
                     </table>
                 </div>
                 <div>
-                    <a th:href="#"><img th:src="./img/main_latest2_tit.png" alt="귀농학교"/></a>
-                    <img th:src="./img/main_latest2_img.jpg" alt="이미지"/>
+                    <a th:href="@{/board/list(group='_croptalk',cate='grow')}"><img th:src="@{/img/main_latest2_tit.png}" alt="귀농학교"/></a>
+                    <img th:src="@{/img/main_latest2_img.jpg}" alt="이미지"/>
                     <table border="0">
-                        <tr>
+                        <tr th:each="school : ${schools}">
                             <td>></td>
-                            <td><a th:href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
+                            <td><a th:href="@{/board/view(group='_croptalk',cate='school',no=${school.no})}">[[${school.title}]]</a></td>
+                            <td>[[${school.rdate.substring(2,10)}]]</td>
                         </tr>
 
                     </table>
                 </div>
                 <div>
-                    <a th:href="#"><img th:src="./img/main_latest3_tit.png" alt="농작물 이야기"/></a>
-                    <img th:src="./img/main_latest3_img.jpg" alt="이미지"/>
+                    <a th:href="@{/board/list(group='_croptalk',cate='grow')}"><img th:src="@{/img/main_latest3_tit.png}" alt="농작물 이야기"/></a>
+                    <img th:src="@{/img/main_latest3_img.jpg}" alt="이미지"/>
                     <table border="0">
-                        <tr>
+                        <tr th:each="story : ${stories}">
                             <td>></td>
-                            <td><a th:href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
+                            <td><a th:href="@{/board/view(group='_croptalk',cate='story',no=${story.no})}">[[${story.title}]]</a></td>
+                            <td>[[${story.rdate.substring(2,10)}]]</td>
                         </tr>
 
                     </table>
@@ -92,29 +92,29 @@
                 <div>
                     <div id="tabs">
                         <ul>
-                            <li><a th:href="#tabs-1">공지사항</a></li>
-                            <li><a th:href="#tabs-2">1:1 고객문의</a></li>
-                            <li><a th:href="#tabs-3">자주묻는 질문</a></li>
+                            <li><a th:href="@{#tabs-1}">공지사항</a></li>
+                            <li><a th:href="@{#tabs-2}">1:1 고객문의</a></li>
+                            <li><a th:href="@{#tabs-3}">자주묻는 질문</a></li>
                         </ul>
                         <div id="tabs-1">
                             <ul class="txt">
-                                <li><a th:href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                                <li><a th:href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                                <li><a th:href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
                             </ul>
                         </div>
                         <div id="tabs-2">
                             <ul class="txt">
-                                <li><a th:href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                                <li><a th:href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                                <li><a th:href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
                             </ul>
                         </div>
                         <div id="tabs-3">
                             <ul class="txt">
-                                <li><a th:href="#">· 홈페이지를 오픈하였습니다.</a></li>
-                                <li><a th:href="#">· 홈페이지를 오픈하였습니다.</a></li>
-                                <li><a th:href="#">· 홈페이지를 오픈하였습니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
+                                <li><a th:href="@{#}">· 홈페이지를 오픈하였습니다.</a></li>
                             </ul>
                         </div>
                     </div>

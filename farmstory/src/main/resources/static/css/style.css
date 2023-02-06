@@ -200,8 +200,8 @@ main > .latest > div > img {
 }
 main > .latest table {
     position: absolute;
-    right: 10px;
-    bottom: 16px;
+    top: 71px;
+    left: 109px;
     color: #6a6a6a;
 }
 main > .latest table tr > td > a{
