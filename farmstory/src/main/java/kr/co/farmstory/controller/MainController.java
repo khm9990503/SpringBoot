@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -30,5 +33,13 @@ public class MainController {
         return "index";
     }
 
+    @ResponseBody
+    @GetMapping("latest")
+    public Map<String, List<ArticleVO>> latest(String cate){
+        List<ArticleVO> latests = service.selectLatest(cate);
+        Map<String, List<ArticleVO>> map = new HashMap<>();
+        map.put("latests",latests);
+        return map;
+    }
 
 }

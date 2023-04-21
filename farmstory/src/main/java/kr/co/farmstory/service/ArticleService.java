@@ -63,6 +63,9 @@ public class ArticleService {
     public List<ArticleVO> selectArticlesIDX(String cate){
         return dao.selectArticlesIDX(cate);
     };
+    public List<ArticleVO> selectLatest(String cate){
+        return dao.selectLatest(cate);
+    };
     public int updateFileDownload(int fno) {
         return dao.updateFileDownload(fno);
     };

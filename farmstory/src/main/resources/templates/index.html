@@ -1,4 +1,22 @@
 <th:block th:include="@{_header.html}"/>
+<script th:inline="javascript">
+$(function() {
+	// 공지사항 최신글 가져오기
+	$.ajax({
+	    url:"/farmstory/latest",
+	    method:"get",
+	    data:({cate:"notice"}),
+	    dataType:"json",
+	    success:function(data){
+            for(let latest of data.latests){
+                //console.log(latest.title);
+                let url = "@{/board/view(group='_community',cate='notice',pg=1,no="+latest.no+")}";
+                $('#tabs-1 .txt').append("<li><a th:href='"+url+"'>* "+latest.title+"</a></li>");
+            }
+        }
+    });
+});
+</script>
         <main>
             <div class="slider">
                 <ul>
@@ -98,9 +116,7 @@
                         </ul>
                         <div id="tabs-1">
                             <ul class="txt">
-                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                                <li><a th:href="@{#}">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+
                             </ul>
                         </div>
                         <div id="tabs-2">
