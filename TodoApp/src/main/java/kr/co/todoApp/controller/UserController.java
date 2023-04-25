@@ -18,6 +18,7 @@ import kr.co.todoApp.jwt.JWTUtil;
 import kr.co.todoApp.repository.UserEntity;
 import kr.co.todoApp.security.MyUserDetails;
 import kr.co.todoApp.security.SecurityUserService;
+import kr.co.todoApp.service.UserService;
 import kr.co.todoApp.vo.UserVO;
 import lombok.extern.log4j.Log4j2;
 
@@ -25,6 +26,8 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 public class UserController {
 
+	@Autowired
+	private UserService service;
 	@Autowired
 	private SecurityUserService securityUserService;
 	@Autowired
@@ -84,4 +87,12 @@ public class UserController {
 	public void logout() {
 		
 	}
+	
+	@ResponseBody
+	@PostMapping("user/regist")
+	public int regist(@RequestBody UserVO vo) {
+		int result = service.insertUser(vo);
+		return result;
+	}
+	
 }
