@@ -363,3 +363,152 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.core
 2023-04-25T13:24:31.787+09:00  INFO 8156 --- [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-04-25T13:24:31.789+09:00  INFO 8156 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-04-25T13:24:31.793+09:00  INFO 8156 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-28T13:47:05.237+09:00  INFO 14440 --- [restartedMain] kr.co.voard.VoardApplication             : Starting VoardApplication using Java 17.0.5 with PID 14440 (C:\Users\java1\Desktop\Workspace\SpringBoot\Voard\target\classes started by java1 in C:\Users\java1\Desktop\Workspace\SpringBoot\Voard)
+2023-04-28T13:47:05.239+09:00  INFO 14440 --- [restartedMain] kr.co.voard.VoardApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-04-28T13:47:05.269+09:00  INFO 14440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-28T13:47:05.269+09:00  INFO 14440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-28T13:47:05.662+09:00  INFO 14440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-28T13:47:05.695+09:00  INFO 14440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interfaces.
+2023-04-28T13:47:05.768+09:00  WARN 14440 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[kr.co.voard]' package. Please check your configuration.
+2023-04-28T13:47:06.071+09:00  INFO 14440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-28T13:47:06.079+09:00  INFO 14440 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-28T13:47:06.079+09:00  INFO 14440 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-28T13:47:06.126+09:00  INFO 14440 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/Voard]  : Initializing Spring embedded WebApplicationContext
+2023-04-28T13:47:06.126+09:00  INFO 14440 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 857 ms
+2023-04-28T13:47:06.293+09:00  INFO 14440 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-28T13:47:06.339+09:00  INFO 14440 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-28T13:47:06.559+09:00  INFO 14440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-28T13:47:06.754+09:00  INFO 14440 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5257caf
+2023-04-28T13:47:06.755+09:00  INFO 14440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-28T13:47:06.797+09:00  INFO 14440 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-04-28T13:47:06.799+09:00  WARN 14440 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-04-28T13:47:07.313+09:00  INFO 14440 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-28T13:47:07.320+09:00  INFO 14440 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28T13:47:07.519+09:00  WARN 14440 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-28T13:47:07.575+09:00  INFO 14440 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7818475e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a784d89, org.springframework.security.web.context.SecurityContextHolderFilter@526594f6, org.springframework.security.web.header.HeaderWriterFilter@59755f92, org.springframework.security.web.authentication.logout.LogoutFilter@2434f1f, kr.co.voard.jwt.JwtAuthenticationFilter@4a553363, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@448ad7ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@520d2370, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76628c15, org.springframework.security.web.session.SessionManagementFilter@4e2f6b8c, org.springframework.security.web.access.ExceptionTranslationFilter@302d4d03]
+2023-04-28T13:47:07.804+09:00  INFO 14440 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-28T13:47:07.828+09:00  INFO 14440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/Voard'
+2023-04-28T13:47:07.835+09:00  INFO 14440 --- [restartedMain] kr.co.voard.VoardApplication             : Started VoardApplication in 2.847 seconds (process running for 3.329)
+2023-04-28T13:47:12.319+09:00  INFO 14440 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/Voard]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-28T13:47:12.319+09:00  INFO 14440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-28T13:47:12.320+09:00  INFO 14440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-04-28T13:47:12.327+09:00  INFO 14440 --- [http-nio-8080-exec-1] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:47:12.328+09:00  INFO 14440 --- [http-nio-8080-exec-1] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:47:12.360+09:00  INFO 14440 --- [http-nio-8080-exec-2] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:47:12.360+09:00  INFO 14440 --- [http-nio-8080-exec-2] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4MjM5ODA1NSwiZXhwIjoxNjgyNDAxNjU1fQ.JYUxTVDWy4BXLIk4Oezk-2LewZgQkVgvu1hsHdTA8WA
+2023-04-28T13:47:12.400+09:00 ERROR 14440 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/Voard] threw exception
+
+io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:399) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173) ~[jjwt-impl-0.11.5.jar:0.11.5]
+	at kr.co.voard.jwt.JWTUtil.getClaimFromToken(JWTUtil.java:35) ~[classes/:na]
+	at kr.co.voard.jwt.JWTUtil.validateToken(JWTUtil.java:48) ~[classes/:na]
+	at kr.co.voard.jwt.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:40) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.0.2.jar:6.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.7.jar:6.0.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.7.jar:10.1.7]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-28T13:47:16.975+09:00  INFO 14440 --- [http-nio-8080-exec-3] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:47:16.975+09:00  INFO 14440 --- [http-nio-8080-exec-3] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:47:16.980+09:00  INFO 14440 --- [http-nio-8080-exec-4] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:47:16.980+09:00  INFO 14440 --- [http-nio-8080-exec-4] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:47:17.002+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : vo : UserVO(uid=r222, pass=asdf1234!, pass1=null, pass2=null, name=null, nick=null, email=null, hp=null, grade=0, zip=null, addr1=null, addr2=null, regip=null, rdate=null, sessId=null, sessLimitDate=null, wdate=null)
+2023-04-28T13:47:17.041+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : login...1
+2023-04-28T13:47:17.176+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : login...2
+2023-04-28T13:47:17.181+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : login...3 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyMjIyIiwiaWF0IjoxNjgyNjU3MjM3LCJleHAiOjE2ODI2NjA4Mzd9.P5mqgjY0EiK4pUS1V5rWL2ULTmu0mRY2mV2WLVdmAFY
+2023-04-28T13:51:46.404+09:00  INFO 14440 --- [http-nio-8080-exec-8] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:51:46.404+09:00  INFO 14440 --- [http-nio-8080-exec-8] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:51:46.408+09:00  INFO 14440 --- [http-nio-8080-exec-9] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:51:46.408+09:00  INFO 14440 --- [http-nio-8080-exec-9] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:51:46.409+09:00  INFO 14440 --- [http-nio-8080-exec-9] kr.co.voard.controller.UserController    : vo : UserVO(uid=r222, pass=asdf1234!, pass1=null, pass2=null, name=null, nick=null, email=null, hp=null, grade=0, zip=null, addr1=null, addr2=null, regip=null, rdate=null, sessId=null, sessLimitDate=null, wdate=null)
+2023-04-28T13:51:46.413+09:00  INFO 14440 --- [http-nio-8080-exec-9] kr.co.voard.controller.UserController    : login...1
+2023-04-28T13:51:46.478+09:00  INFO 14440 --- [http-nio-8080-exec-9] kr.co.voard.controller.UserController    : login...2
+2023-04-28T13:51:46.479+09:00  INFO 14440 --- [http-nio-8080-exec-9] kr.co.voard.controller.UserController    : login...3 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyMjIyIiwiaWF0IjoxNjgyNjU3NTA2LCJleHAiOjE2ODI2NjExMDZ9.NOShF8e60FK9FpDLyg7fZbHfoZfyeviEt1Kl68aD084
+2023-04-28T13:52:49.489+09:00  INFO 14440 --- [http-nio-8080-exec-1] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:52:49.489+09:00  INFO 14440 --- [http-nio-8080-exec-1] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:52:49.494+09:00  INFO 14440 --- [http-nio-8080-exec-2] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:52:49.495+09:00  INFO 14440 --- [http-nio-8080-exec-2] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyMjIyIiwiaWF0IjoxNjgyNjU3NTA2LCJleHAiOjE2ODI2NjExMDZ9.NOShF8e60FK9FpDLyg7fZbHfoZfyeviEt1Kl68aD084
+2023-04-28T13:52:49.498+09:00  INFO 14440 --- [http-nio-8080-exec-2] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...3
+2023-04-28T13:52:49.508+09:00  INFO 14440 --- [http-nio-8080-exec-2] kr.co.voard.controller.UserController    : auth...1
+2023-04-28T13:52:49.508+09:00  INFO 14440 --- [http-nio-8080-exec-2] kr.co.voard.controller.UserController    : auth...3 : kr.co.voard.repository.UserEntity@75f127ae
+2023-04-28T13:52:56.324+09:00  INFO 14440 --- [http-nio-8080-exec-3] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:52:56.324+09:00  INFO 14440 --- [http-nio-8080-exec-3] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:52:56.330+09:00  INFO 14440 --- [http-nio-8080-exec-4] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:52:56.330+09:00  INFO 14440 --- [http-nio-8080-exec-4] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyMjIyIiwiaWF0IjoxNjgyNjU3NTA2LCJleHAiOjE2ODI2NjExMDZ9.NOShF8e60FK9FpDLyg7fZbHfoZfyeviEt1Kl68aD084
+2023-04-28T13:52:56.332+09:00  INFO 14440 --- [http-nio-8080-exec-4] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...3
+2023-04-28T13:52:56.340+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : auth...1
+2023-04-28T13:52:56.340+09:00  INFO 14440 --- [http-nio-8080-exec-4] kr.co.voard.controller.UserController    : auth...3 : kr.co.voard.repository.UserEntity@1f015243
+2023-04-28T13:53:48.866+09:00  INFO 14440 --- [http-nio-8080-exec-5] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:53:48.867+09:00  INFO 14440 --- [http-nio-8080-exec-5] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : null
+2023-04-28T13:53:48.874+09:00  INFO 14440 --- [http-nio-8080-exec-6] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...1
+2023-04-28T13:53:48.874+09:00  INFO 14440 --- [http-nio-8080-exec-6] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...2 : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyMjIyIiwiaWF0IjoxNjgyNjU3NTA2LCJleHAiOjE2ODI2NjExMDZ9.NOShF8e60FK9FpDLyg7fZbHfoZfyeviEt1Kl68aD084
+2023-04-28T13:53:48.876+09:00  INFO 14440 --- [http-nio-8080-exec-6] k.co.voard.jwt.JwtAuthenticationFilter   : doFilterInternal...3
+2023-04-28T13:53:48.881+09:00  INFO 14440 --- [http-nio-8080-exec-6] kr.co.voard.controller.UserController    : auth...1
+2023-04-28T13:53:48.881+09:00  INFO 14440 --- [http-nio-8080-exec-6] kr.co.voard.controller.UserController    : auth...3 : kr.co.voard.repository.UserEntity@32b770cb
+2023-04-28T13:54:07.745+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-28T13:54:07.751+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-28T13:54:07.752+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/Voard]  : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-28T13:54:07.754+09:00  WARN 14440 --- [RMI TCP Connection(9)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [Voard] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.5/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
+2023-04-28T13:54:07.757+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28T13:54:07.759+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-28T13:54:07.763+09:00  INFO 14440 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
