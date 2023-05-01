@@ -9,4 +9,7 @@
 							`pass`=#{pass}, 
 							`grade`=0;
 	</insert>
+	<insert id="insertTodo">
+		insert into `todos` set `uid`=#{uid}, `todo`=#{todo};
+	</insert>
 </mapper>

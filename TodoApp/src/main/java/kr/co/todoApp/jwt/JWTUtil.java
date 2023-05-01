@@ -51,7 +51,7 @@ public class JWTUtil {
 	
 	// HTTP 헤더에서 Token 추출
 	public String resolveToken(HttpServletRequest request) {
-		return request.getHeader("X-AUTH_TOKEN");
+		return request.getHeader("X-AUTH-TOKEN");
 	}
 	
 	// JWT 생성 (토큰 발행 메서드)

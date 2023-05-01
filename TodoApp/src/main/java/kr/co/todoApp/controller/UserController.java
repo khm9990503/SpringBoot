@@ -13,17 +13,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.todoApp.jwt.JWTUtil;
 import kr.co.todoApp.repository.UserEntity;
 import kr.co.todoApp.security.MyUserDetails;
 import kr.co.todoApp.security.SecurityUserService;
 import kr.co.todoApp.service.UserService;
+import kr.co.todoApp.vo.TodoVO;
 import kr.co.todoApp.vo.UserVO;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@Controller
+@RestController
 public class UserController {
 
 	@Autowired
@@ -36,7 +38,6 @@ public class UserController {
 	private JWTUtil jwtUtil;
 	
 	//@CrossOrigin(origins = "*")
-	@ResponseBody
 	@PostMapping("user/login")
 	public Map<String, Object> login(@RequestBody UserVO vo) {
 		log.info("vo : " + vo);
@@ -65,7 +66,6 @@ public class UserController {
 		return resultMap;		
 	}
 	
-	@ResponseBody
 	@GetMapping("user/auth")
 	public Map<String, Object> auth(Authentication authentication) {
 		
@@ -83,16 +83,15 @@ public class UserController {
 		return resultMap;	
 	}
 	
-	@GetMapping("user/logout")
-	public void logout() {
-		
-	}
-	
-	@ResponseBody
 	@PostMapping("user/regist")
 	public int regist(@RequestBody UserVO vo) {
 		int result = service.insertUser(vo);
 		return result;
+	}
+	
+	@PostMapping("addTodo")
+	public int addTodo(@RequestBody TodoVO vo) {
+		return service.insertTodo(vo);
 	}
 	
 }

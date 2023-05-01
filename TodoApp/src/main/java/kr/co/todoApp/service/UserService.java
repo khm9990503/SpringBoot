@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.co.todoApp.dao.UserDao;
+import kr.co.todoApp.vo.TodoVO;
 import kr.co.todoApp.vo.UserVO;
 
 @Service
@@ -18,5 +19,8 @@ public class UserService {
 	public int insertUser (UserVO vo) {
 		vo.setPass(passwordEncoder.encode(vo.getPass()));
 		return dao.insertUser(vo);
+	};
+	public int insertTodo (TodoVO vo) {
+		return dao.insertTodo(vo);
 	};
 }
